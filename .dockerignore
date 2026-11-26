@@ -1,6 +1,10 @@
-.git
-.env
-.env.*
-.venv
-node_modules
-**/__pycache__
+**
+!package.json
+!pnpm-lock.yaml
+!tsconfig.json
+!tsconfig.build.json
+!src/
+!src/**
+**/.env
+**/.env.*
+**/node_modules

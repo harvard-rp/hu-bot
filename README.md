@@ -1,28 +1,31 @@
-# Veritas
+# Harvard University
 
-A Discord bot starter built with Python and discord.py.
+Discord bot for the independent Harvard University RP project.
 
-## Run with Docker Compose
+## Development
 
-If you don't already have a `.env`, copy `.env.example` to `.env` and set `DISCORD_TOKEN` using your bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
-
-```sh
-docker compose up --build -d
-docker compose logs -f veritas
-```
-
-Stop the bot with `docker compose down`.
-
-## Run locally with Python
-
-Create a virtual environment and install the dependencies.
+Use Node.js 24 LTS (see [.node-version](.node-version)) and the pnpm version pinned in [package.json](package.json).
 
 ```sh
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
+corepack enable
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
 ```
 
-With `.env` in place, run `python -m veritas` to start the bot.
+Tests use simulated Discord data and require no credentials. To validate a local `.env` without connecting to Discord, copy [.env.example](.env.example), fill in the variables, then run:
 
-Add event handlers in `veritas/events/` and future commands in `veritas/commands/`.
+```sh
+pnpm start --check-config
+```
+
+`pnpm dev` and `pnpm start` connect to Discord with the configured token. Use them only in an authorized environment. The inventory has a separate [read-only command](docs/DISCORD_INTEGRATION.md#inventory).
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Discord integration and inventory](docs/DISCORD_INTEGRATION.md)
+- [Deployment and Python migration](docs/DEPLOYMENT.md)
+- [Decisions](docs/DECISIONS.md)
+- [Security](SECURITY.md)

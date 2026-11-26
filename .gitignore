@@ -1,6 +1,11 @@
 node_modules/
-.venv/
-__pycache__/
+dist/
+coverage/
+.discord-inventory/
 .env
 .env.*
 !.env.example
+
+# Local artifacts left by a Python checkout
+.venv/
+__pycache__/
