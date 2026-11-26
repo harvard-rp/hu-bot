@@ -1,11 +1,17 @@
 # Veritas
 
-A Discord bot starter built with Node.js and discord.js.
+A Discord bot starter built with Python and discord.py.
 
 ## Setup
 
-1. Install Node.js 22.12 or newer and run `npm ci`.
-2. Copy `.env.example` to `.env` and set `DISCORD_TOKEN` using your bot token from the [Discord Developer Portal](https://discord.com/developers/applications).
-3. Run `npm start`.
+Create a virtual environment and install the dependencies.
 
-The entry point is `src/index.js`. Add event handlers in `src/events/` and future commands in `src/commands/`.
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+If you don't already have a `.env`, copy `.env.example` to `.env` and set `DISCORD_TOKEN` using your bot token from the [Discord Developer Portal](https://discord.com/developers/applications). Run `python -m veritas` to start the bot.
+
+Add event handlers in `veritas/events/` and future commands in `veritas/commands/`.
