@@ -1,0 +1,4 @@
+services:
+  veritas:
+    build: .
+    env_file: .env
